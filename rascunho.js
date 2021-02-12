@@ -40,7 +40,8 @@ class Directors extends Companies {
         this._passwordAdm = newpasswordAdm;
     }
 }
-//aqui ele copia todos os atributos de departamento, nome, email e senha e coloca no 1 item de companies
+// Precisa de alguns ajustes aqui, poderia criar uma outra classe tipo pagamento herdada a employee com data e hora trabalhada, com um valor constantes diferenciando por
+//departamento
 class Employees extends Companies {
     constructor(Company, nameAdm, emailAdm, passwordAdm, name, department, email, password, day_atual, starthous, endhours) {
             super(Company, nameAdm, emailAdm, passwordAdm)
@@ -48,6 +49,7 @@ class Employees extends Companies {
             this._name = name;
             this._email = email;
             this._password = password;
+             //nessa parte pode ser adicionado em outra class
             //this.day_atual = day_atual;
             //this.starthous = starthous;
             //this.endhours = endhours;
@@ -57,6 +59,7 @@ class Employees extends Companies {
     get name() { return this._name }
     get email() { return this._email }
     get password() { return this._password }
+    //os dias e horas de entrada e saida estão em local errado
     get day_atual() { return this.day_atual }
     get starthours() { return this.starthours }
     get endhours() { return this.endhours }
@@ -79,7 +82,7 @@ class Employees extends Companies {
         validarString(newpassword, 'this._password');
         this._password = newpassword;
     }
-
+//essa parte vai para outra class
     /*   set day_atual(newday) {
         const data = new Date();
         data.toDateString('pt-BR');
@@ -124,3 +127,4 @@ console.log('---------------------------------')
 console.log(nomeEmpresa);
 console.log(diretor);
 console.log(worker);
+//fiz um arquivo separado de data sem me preocupar com classe e deu certo, é necessario fazer alguns ajustes
